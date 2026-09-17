@@ -1,13 +1,13 @@
 # Impulse2D To Do List
 
 ## Math
-- Vector2D
+[DONE] - Vector2D
 - Normalization
 - Scalar/Vector Operations
 - Dot Product
 - Magnitude
 
-- Setup SDL3
+[DONE] - Setup SDL3
 
 ## Physics
 - Rigid Body

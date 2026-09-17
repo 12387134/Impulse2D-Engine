@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "RigidBody.h"
 #include <print>
 
 Game::Game(int width, int height, RGBA color, bool active) : 
@@ -40,13 +41,28 @@ void Game::initialize() {
 
 }
 
+void Game::end() {
+    active = false;
+}
+
+void Game::draw(float x, float y, float n, float z) {
+
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_FRect rectangle1{
+        x,
+        y,
+        n,
+        z };
+        SDL_RenderFillRect(renderer, &rectangle1);
+}
+
 void Game::run() {
     while (active) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
-                case SDL_EVENT_QUIT: active = false; break;
-                case SDL_EVENT_KEY_DOWN: active = false; break;
+                case SDL_EVENT_QUIT: end(); break;
+                case SDL_EVENT_KEY_DOWN: end(); break;
             }
         }
 
@@ -54,13 +70,12 @@ void Game::run() {
         SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
         SDL_RenderClear(renderer);
 
+        draw(200, 200, 200, 200);
+        draw(0, 0, 40, 40);
+
         SDL_RenderPresent(renderer);
 
     }
-}
-
-void Game::end() {
-    active = false;
 }
 
 bool Game::running() const {
