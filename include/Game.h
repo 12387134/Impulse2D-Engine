@@ -2,13 +2,7 @@
 #include <SDL3/SDL.h>
 #include <string>
 #include "RigidBody.h"
-
-struct RGBA {
-    int r{};
-    int g{};
-    int b{};
-    int a{};
-};
+#include "rgba.h"
 
 class Game {
     private:
@@ -25,6 +19,6 @@ class Game {
         void initialize();
         void run();
         void end();
-        void draw(float x, float y, float n, float z);
+        void draw(RigidBody& RigidBody);
         bool running() const;
-};
+}; // rgba, position, dimensions 
