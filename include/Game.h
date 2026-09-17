@@ -1,29 +1,28 @@
 #pragma once
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+#include <string>
+
+struct RGBA {
+    int r{};
+    int g{};
+    int b{};
+    int a{};
+};
 
 class Game {
     private:
         int width{};
         int height{};
         bool active{};
+        RGBA color{};
+        SDL_Window* window{};
+        SDL_Renderer* renderer{};
 
     public:
-        Game (int width, int height, bool active=true) : 
-        width{width},
-        height{height},
-        active{active}
-        {}
-
-        void run() {
-
-        }
-
-        void end() {
-            active = false;
-        }
-
-        bool running() const {
-            return active;
-        }
+        Game (int width, int height, RGBA color, bool active=true);
+        ~Game();
+        void initialize();
+        void run();
+        void end();
+        bool running() const;
 };

@@ -10,6 +10,7 @@ find_package(SDL3 REQUIRED CONFIG)
 add_executable(Impulse2D
     src/main.cpp
     src/RigidBody.cpp
+    src/Game.cpp
 )
 
 target_link_libraries(Impulse2D PRIVATE SDL3::SDL3)
