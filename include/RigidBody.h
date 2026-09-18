@@ -20,5 +20,6 @@ class RigidBody {
         const RGBA getColor() const;
 
         void pushVelocity(const Vector2D &other);
+        void setPos(const Vector2D &other);
 
 };

@@ -19,6 +19,6 @@ class Game {
         void initialize();
         void run();
         void end();
-        void draw(RigidBody& RigidBody);
+        void draw(const RigidBody& RigidBody);
         bool running() const;
 }; // rgba, position, dimensions 

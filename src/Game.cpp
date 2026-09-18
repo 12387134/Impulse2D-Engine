@@ -1,11 +1,12 @@
 #include "Game.h"
 #include "RigidBody.h"
+#include "Kinematics.h"
 #include <print>
 
 Game::Game(int width, int height, RGBA color, bool active) : 
-    width{width},
-    height{height},
-    color{color},
+    width{width}, 
+    height{height}, 
+    color{color}, 
     active{active} {
 }
 
@@ -45,7 +46,7 @@ void Game::end() {
     active = false;
 }
 
-void Game::draw(RigidBody& RigidBody) {
+void Game::draw(const RigidBody& RigidBody) {
     SDL_SetRenderDrawColor(renderer, RigidBody.getColor().r, RigidBody.getColor().g, RigidBody.getColor().b, RigidBody.getColor().a);
         SDL_FRect thisRigidBody{
         RigidBody.getPosition().x,
@@ -57,16 +58,20 @@ void Game::draw(RigidBody& RigidBody) {
         SDL_RenderFillRect(renderer, &thisRigidBody);
 }
 
-RigidBody firstBox{1, 1, {255, 0, 0, 255}, {0, 0}, {150, 150}, {0, 0}};
-Vector2D change{20, 20};
 
 void Game::run() {
+    World world{};
+    Vector2D change{20, 20};
+    RigidBody firstBox{1, 1, {255, 0, 0, 255}, {0, 0}, {150, 150}, {0, 0}};
+    world.addBody(firstBox);
+
     while (active) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_EVENT_QUIT: end(); break;
-                case SDL_EVENT_KEY_DOWN: firstBox.pushVelocity(change); break;
+                case SDL_EVENT_KEY_DOWN: world.getBody(0).pushVelocity(change); break;
+                case SDL_EVENT_MOUSE_BUTTON_UP: float mouse_x{}, mouse_y{}; SDL_MouseButtonFlags buttons = SDL_GetMouseState(&mouse_x, &mouse_y); world.getBody(0).setPos({mouse_x, mouse_y}); break;
             }
         }
 
@@ -74,7 +79,7 @@ void Game::run() {
         SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
         SDL_RenderClear(renderer);
 
-        draw(firstBox);
+        draw(world.getBody(0));
 
         SDL_RenderPresent(renderer);
 

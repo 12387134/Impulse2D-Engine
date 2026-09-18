@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ahnafalam/Desktop/Programming/Projects/C++_Projects/Impulse2D/src/Game'
+binary-path:     '/Users/ahnafalam/Desktop/Programming/Projects/C++_Projects/Impulse2D/src/Kinematics'
 relocations:
   - { offsetInCU: 0x113, offset: 0x113, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002D00, symSize: 0xAC }
   - { offsetInCU: 0x4881, offset: 0x4881, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002D00, symSize: 0xAC }
@@ -599,7 +599,7 @@ relocations:
   - { offsetInCU: 0x5CDC, offset: 0x43E1F, size: 0x8, addend: 0x0, symName: __ZNKSt6vectorI9RigidBodySaIS0_EE4sizeEv, symObjAddr: 0x2AC, symBinAddr: 0x100019920, symSize: 0x44 }
   - { offsetInCU: 0x5D5F, offset: 0x43EA2, size: 0x8, addend: 0x0, symName: __ZNSt6vectorI9RigidBodySaIS0_EE2atEm, symObjAddr: 0x20C, symBinAddr: 0x1000198F0, symSize: 0x30 }
   - { offsetInCU: 0x5D9A, offset: 0x43EDD, size: 0x8, addend: 0x0, symName: __ZNSt6vectorI9RigidBodySaIS0_EE9push_backERKS0_, symObjAddr: 0x17C, symBinAddr: 0x100019860, symSize: 0x90 }
-  - { offsetInCU: 0x5E32, offset: 0x43F75, size: 0x8, addend: 0x0, symName: __ZN5World7getBodyEm, symObjAddr: 0x158, symBinAddr: 0x10001983C, symSize: 0x24 }
+  - { offsetInCU: 0x5E32, offset: 0x43F75, size: 0x8, addend: 0x0, symName: __ZN5World7getBodyEi, symObjAddr: 0x158, symBinAddr: 0x10001983C, symSize: 0x24 }
   - { offsetInCU: 0x5E6F, offset: 0x43FB2, size: 0x8, addend: 0x0, symName: __ZN5World18collisionDetectionEv, symObjAddr: 0x144, symBinAddr: 0x100019828, symSize: 0x14 }
   - { offsetInCU: 0x5E9C, offset: 0x43FDF, size: 0x8, addend: 0x0, symName: __ZN5World19collisionResolutionEv, symObjAddr: 0x130, symBinAddr: 0x100019814, symSize: 0x14 }
   - { offsetInCU: 0x5EC9, offset: 0x4400C, size: 0x8, addend: 0x0, symName: __ZN5World7gravityEv, symObjAddr: 0x11C, symBinAddr: 0x100019800, symSize: 0x14 }

@@ -28,3 +28,8 @@ const Vector2D RigidBody::getDimensions() const {
 void RigidBody::pushVelocity(const Vector2D &other) {
     position += other;
 }
+
+void RigidBody::setPos(const Vector2D &other) {
+    position.x = other.x;
+    position.y = other.y;
+}
